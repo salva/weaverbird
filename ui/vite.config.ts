@@ -1,11 +1,15 @@
-import vue from '@vitejs/plugin-vue2';
+import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 import { fileURLToPath, URL } from 'url';
 import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue({
+      reactivityTransform: true,
+    }),
+  ],
   resolve: {
     // Default extensions ['.mjs', '.js', '.json', '.node']
     // We need to add the '.vue' extension because of the import of the component from v-calendar
